@@ -6,8 +6,10 @@ import java.util.List;
 import javax.persistence.*;
 
 import play.data.validation.Constraints.Required;
+import play.db.ebean.Model;
 
-public class Product {
+@Entity
+public class Product extends Model{
 	@Id
 	public Long id;
 	@Required
@@ -17,15 +19,17 @@ public class Product {
 	public String category;
 	public String descricao;
 	
+	public static Finder<Long,Product> find = new Finder(Long.class, Product.class);
+	
 	public static List<Product> all() {
-		return new ArrayList<Product>();
+		return find.all();
 	}
   
-	public static void create(Product task) {
-	
+	public static void create(Product product) {
+		product.save();
 	}
   
 	public static void delete(Long id) {
-	
+		find.ref(id).delete();
 	}
 }

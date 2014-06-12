@@ -4,10 +4,9 @@
 @import helper.twitterBootstrap._
 @main("Produtos") {
 		<div class="row">
-				<div class="col-md-6 product_form">
+				<div class="col-md-4 product_form">
 						<h2>Cadastrar produtos</h2>
 						@form(routes.Application.newProduct()) {
-								@inputText(productForm("name"))
 								@inputText(productForm("name"))
 								@inputText(productForm("price"))
 								@inputText(productForm("category"))
@@ -15,7 +14,7 @@
 								<input type="submit" class="btn btn-success" value="Salvar">
 						}
 				</div>
-				<div class="col-md-6 product-list">
+				<div class="col-md-8 product-list">
 						@productListTable(products)
 				</div>
 		</div>

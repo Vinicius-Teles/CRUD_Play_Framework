@@ -34,6 +34,7 @@ public class Application extends Controller {
     }
     
     public static Result deleteProduct(Long id) {
-        return TODO;
+        Product.delete(id);
+        return redirect(routes.Application.products());
     }
 }
