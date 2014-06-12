@@ -8,7 +8,7 @@ GET     /                           controllers.Application.index()
 # Products
 GET     /products                  controllers.Application.products()
 POST    /products                  controllers.Application.newProduct()
-POST    /products/:id/delete       controllers.Application.deleteProduct(id: Integer)
+POST    /products/:id/delete       controllers.Application.deleteProduct(id: Long)
 GET     /products/all              controllers.Application.listProducts()
 
 # Map static resources from the /public folder to the /assets URL path

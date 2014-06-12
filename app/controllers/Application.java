@@ -1,12 +1,15 @@
 package controllers;
 
+import models.Product;
 import play.*;
+import play.data.*;
 import play.mvc.*;
-
 import views.html.*;
 
 public class Application extends Controller {
 
+	static Form<Product> productForm = Form.form(Product.class);
+	
 	public static Result index() {
         return redirect(routes.Application.products());
     }
@@ -24,7 +27,7 @@ public class Application extends Controller {
         return TODO;
     }
     
-    public static Result deleteProduct(Integer id) {
+    public static Result deleteProduct(Long id) {
         return TODO;
     }
 }
