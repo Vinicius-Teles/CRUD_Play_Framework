@@ -15,7 +15,7 @@ public class Application extends Controller {
     }
     
     public static Result products() {
-        return TODO;
+    	return ok(views.html.index.render(Product.all(), productForm));
     }
     
     //SERVIÇO QUE IRÁ RETORNAR TODOS OS PRODUTOS CADASTRADOS
@@ -24,7 +24,13 @@ public class Application extends Controller {
     }
     
     public static Result newProduct() {
-        return TODO;
+    	Form<Product> filledForm = productForm.bindFromRequest();
+    		if(filledForm.hasErrors()) {
+    			return badRequest(views.html.index.render(Product.all(), filledForm));
+		} else {
+			Product.create(filledForm.get());
+			return redirect(routes.Application.products());  
+		}
     }
     
     public static Result deleteProduct(Long id) {

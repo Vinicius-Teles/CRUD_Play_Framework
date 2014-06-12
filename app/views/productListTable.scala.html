@@ -1,0 +1,33 @@
+@(products: List[Product])
+
+@import helper._
+@import helper.twitterBootstrap._
+@import helper.twitterBootstrap._
+		<h2>Produtos cadastrados</h2>
+    <table class="table table-bordered">
+				<thead>
+						<tr>
+								<td>Nome</td>
+								<td>Valor</td>
+								<td>Categoria</td>
+								<td>Descrição</td>
+								<td>Ações</td>
+						</tr>
+				</thead>
+        @for(product <- products) {
+        		<td>@product.name</td>
+        		<td>R$ @getCurrencyInstance(product.price)</td>
+        		<td>@product.category</td>
+        		<td>@product.descricao</td>
+        		
+        		<td>
+								<input type="button" class="btn btn-success" value="Edit">
+						</td>
+						<td>
+        				@form(routes.Application.deleteProduct(product.id)) {
+		            		<input type="submit" class="btn btn-success" value="Delete">
+								}
+						</td>
+        }
+    </table>
+ 
