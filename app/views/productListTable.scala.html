@@ -2,7 +2,6 @@
 
 @import helper._
 @import helper.twitterBootstrap._
-@import helper.twitterBootstrap._
 		<h2>Produtos cadastrados</h2>
     <table class="table table-bordered">
 				<thead>
@@ -16,7 +15,7 @@
 				</thead>
         @for(product <- products) {
         		<td>@product.name</td>
-        		<td>R$ @getCurrencyInstance(product.price)</td>
+        		<td>R$ ${product.price.formatCurrency('PT').raw()}</td>
         		<td>@product.category</td>
         		<td>@product.descricao</td>
         		
