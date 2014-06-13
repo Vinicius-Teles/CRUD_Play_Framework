@@ -1,16 +1,16 @@
-@(products: List[Product])
+@(products: List[Product], productForm: Form[Product])
 
 @import helper._
 @import helper.twitterBootstrap._
 		<h2>Produtos cadastrados</h2>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover table-product">
 				<thead>
 						<tr>
-								<td>Nome</td>
-								<td>Valor</td>
-								<td>Categoria</td>
-								<td>Descrição</td>
-								<td>Ações</td>
+								<th>Nome</td>
+								<th>Valor</td>
+								<th>Categoria</td>
+								<th>Descrição</td>
+								<th>Ações</td>
 						</tr>
 				</thead>
         @for(product <- products) {
@@ -21,12 +21,29 @@
         				<td>@product.descricao</td>
         		
         				<td class="actions">
-										<input type="button" class="btn btn-success" value="Edit">
-        						@form(routes.Application.deleteProduct(product.id)) {
-		            				<input type="submit" class="btn btn-success" value="Delete">
-										}
+										<div class="row">
+											<div class="col-md-6">
+												@form(routes.Application.editProduct(product.id),'class -> "edit_product") {
+													<button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i> Editar</button>
+												}
+											</div>
+											<div class="col-md-6">
+		        						@form(routes.Application.deleteProduct(product.id),'class -> "delete_product") {
+			            				<button type="button" onclick="delete_product()" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Deletar</button>
+												}
+											</div>
+										</div>
 								</td>
 						</tr>
         }
     </table>
+<script>
+	function delete_product(){
+		var form = $('.delete_product');
+		var res = confirm("Tem certeza que deseja exluir esse produto?");
+		if(res){
+			form.submit();
+		}
+	}
+</script>
  

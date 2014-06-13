@@ -3,19 +3,21 @@
 @import helper._
 @import helper.twitterBootstrap._
 @main("Produtos") {
-		<div class="row">
-				<div class="col-md-4 product_form">
-						<h2>Cadastrar produtos</h2>
-						@form(routes.Application.newProduct()) {
-								@inputText(productForm("name"))
-								@inputText(productForm("price"))
-								@inputText(productForm("category"))
-								@textarea(productForm("descricao"))
-								<input type="submit" class="btn btn-success" value="Salvar">
-						}
-				</div>
-				<div class="col-md-8 product-list">
-						@productListTable(products)
-				</div>
+	<div class="row">
+		<div class="col-md-4 product_form">
+			<h2>Cadastrar produtos</h2>
+			@form(routes.Application.newProduct()) {
+				@inputText(productForm("name"),'_label->"Nome*",'_showConstraints -> false,'class -> "form-control",'required -> "required")
+				@inputText(productForm("price"),'type->"number",'_label->"Valor*",'_showConstraints->false,'class -> "form-control",'required -> "required")
+				@inputText(productForm("category"),'_label->"Categoria",'class -> "form-control")
+				@textarea(productForm("descricao"),'_label->"Descrição",'class -> "form-control")
+				<input type="hidden" name="id" value=@productForm("id").value>
+				<button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-floppy-disk"></i> Salvar</button>
+				@messageFlash()
+			}
 		</div>
+		<div class="col-md-8 product-list">
+			@productListTable(products,productForm)
+		</div>
+	</div>
 }

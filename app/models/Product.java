@@ -26,7 +26,14 @@ public class Product extends Model{
 	}
   
 	public static void create(Product product) {
-		product.save();
+		if(product.id == null)
+			product.save();
+		else
+			product.update();
+	}
+	
+	public static Product getById(Long id){
+		return find.byId(id);
 	}
   
 	public static void delete(Long id) {

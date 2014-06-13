@@ -1,0 +1,42 @@
+/*HEADER*/
+header{
+	box-shadow: 1px 0 3px #000;
+	text-align: center;
+	background: #92d13d;
+	padding: 15px 0 10px 0;
+	color: #FFF;
+}
+header .header-title{
+	margin-top: 0;
+}
+header .logo{
+	display: block;
+	float: left;
+	height: 40px;
+}
+/*LISTAGEM DOS PRODUTOS*/
+.table-product thead{
+	background: #92d13d;
+	color: #fff;
+}
+.table-product th{
+	text-align: center;
+}
+.actions{
+	width: 250px;
+	text-align: center;
+}
+
+/*FORMULÁRIO DE CADASTRO*/
+.product_form input[type=text],
+.product_form textarea{
+	width: 100%;
+	max-width: 100%;
+}
+.help-inline{
+	color: red;
+	text-shadow: 1px 0 2px #ccc;
+}
+.alert-message{
+	margin-top: 15px;
+}

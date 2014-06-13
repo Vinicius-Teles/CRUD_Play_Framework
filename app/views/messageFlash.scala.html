@@ -1,0 +1,17 @@
+@if(flash.get("success")){
+	<div class="alert alert-message alert-success" style="display: none;">
+ 		@flash.get("success")
+	</div>
+}
+@if(flash.get("error")){
+	<div class="alert alert-message alert-danger" style="display: none;">
+ 		@flash.get("error")
+	</div>
+}
+<script>
+	$('.alert-message').show("slow");
+	var id = setInterval(function(){
+		$('.alert-message').hide("slow");
+		clearInterval(id)
+	}, 2000);
+</script>
