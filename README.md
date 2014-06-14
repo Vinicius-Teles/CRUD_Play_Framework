@@ -16,5 +16,10 @@ A aplicação disponibiliza ainda 2 serviços REST:
 2. Baixe o e instale Play Framework versão 2.2.3 [Veja como aqui](http://www.playframework.com/documentation/2.2.x/Installing)
 3. Abra o prompt de comando do seu sistema operacional e navegue até a pasta onde você inseriu a aplicação
 4. Execute a aplicação com o comando:
-``` play run
+
+``` 
+$ play run
+
+```
+
 5. Sua aplicação ficará disponível no endereço seu_dominio:9000
