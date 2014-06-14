@@ -13,6 +13,7 @@
 								<th>Ações</td>
 						</tr>
 				</thead>
+				<tbody>
         @for(product <- products) {
         		<tr>
         				<td>@product.name</td>
@@ -36,6 +37,7 @@
 								</td>
 						</tr>
         }
+        </tbody>
     </table>
 <script>
 	function delete_product(){
